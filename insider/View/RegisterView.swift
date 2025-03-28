@@ -89,9 +89,8 @@ struct RegisterView: View {
                     
                     if viewModel.noPlayers >= 4 {
                         NavigationLink(destination: {
-                            //Game.shared.distributionOfRoles()
-                            //return UnlockView().navigationBarHidden(true)
-                            return InitialView()
+                            viewModel.assignInitialSettings()
+                            return RoleCardView().navigationBarHidden(true)
                         }) {
                             Text(viewModel.registerTxt03)
                                 .font(.custom("Helvetica", size: 15))

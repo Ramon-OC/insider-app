@@ -41,5 +41,11 @@ extension RegisterView{
             namesListItems.remove(atOffsets: offsets)
         }
         
+        func assignInitialSettings(){
+            GameLogic.shared.saveNames(names: namesListItems)
+            GameLogic.shared.distributionOfRoles()
+            GameLogic.shared.auxRoleView()
+        }
+        
     }
 }

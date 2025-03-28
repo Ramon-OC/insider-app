@@ -22,7 +22,7 @@ struct InitialView: View{
                     .padding(.top, 70)
                 
                 NavigationLink( // EYE
-                    destination: InitialView().navigationBarHidden(true),
+                    destination: RegisterView().navigationBarHidden(true),
                     label: {
                         Image(systemName: viewModel.buttonImage)
                             .resizable().scaledToFit()
