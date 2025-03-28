@@ -48,7 +48,7 @@ struct UnlockedRoleCardView: View {
         VStack(spacing: 80) {
             
             // Role card
-            VStack(spacing: 100) {
+            VStack(spacing: 50) {
                 Text(viewModel.currentPlayerName)
                     .font(.system(size: 40, weight: .heavy, design: .default))
                     .foregroundColor( .white)
@@ -81,16 +81,16 @@ struct UnlockedRoleCardView: View {
             if(viewModel.isLeaderPlayer){
                 Text(viewModel.unlockedTxt01)
                     .font(.system(size: 20, weight: .heavy))
-                    .padding(.top, 20)
+                    .padding(.top, 5)
             }
             
             // exit button
             ZStack{
                 if(viewModel.allNotificated && isButtonVisible){
                     NavigationLink(destination: {
-                        return InitialView().navigationBarHidden(true)
+                        return ThemeRevealView().navigationBarHidden(true)
                     }) {
-                        Text(viewModel.lockedTxt02)
+                        Text(viewModel.unlockedTxt02)
                             .font(.system(size: 20, weight: .heavy))
                             .frame(minWidth: 0, maxWidth: 240)
                             .padding()

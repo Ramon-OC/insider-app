@@ -7,10 +7,12 @@
 import Foundation
 
 // MARK: temp-declarations
-let gameCards = [WordsCard(words: [("Uno","/'u no/"),("Dos","/dos/"),("Tres","/tres/"),("Cuatro","/'kwa tro/"),("Cinco","/'θiŋ ko/"),("Seis","/'se js/")])]
 let gameUsers = [Player(name: "Uno", role: "INSIDER"),Player(name: "Dos", role: "MASTER"),Player(name: "Tres", role: "COMMONS"),Player(name: "Cuatro", role: "COMMONS"),Player(name: "Cinco", role: "COMMONS")]
 
 class GameLogic{
+    
+    var gameCards:[Card] = []
+    
     var players: [Player] = []
     var insiderIndex: Int?
     var leaderIndex: Int?
@@ -19,13 +21,14 @@ class GameLogic{
     var currentCardIndex: Int?
     
     let playersCards =
-        ["INSIDER": PlayersCard(role: ("INSIDER", "ɪnˈsaɪdər"), image: "eye.fill"),
-         "MASTER": PlayersCard(role: ("MASTER", "ˈmastər"), image: "exclamationmark"),
-         "COMMONS": PlayersCard(role: ("COMMONS", "ˈkämənz"), image: "questionmark")]
+    ["INSIDER": PlayersCard(role: ("INSIDER", "ɪnˈsaɪdər"), image: "eye.fill"),
+     "MASTER": PlayersCard(role: ("MASTER", "ˈmastər"), image: "exclamationmark"),
+     "COMMONS": PlayersCard(role: ("COMMONS", "ˈkämənz"), image: "questionmark")]
     
     init(){
-        self.currentWordIndex = Int.random(in: 1...5)
-        self.currentCardIndex = Int.random(in: 1...5)
+        self.gameCards = CardManager.shared.cards
+        self.currentWordIndex = Int.random(in: 0...4)
+        self.currentCardIndex = Int.random(in: 0..<CardManager.shared.totalCards)
     }
     
     static var shared: GameLogic = {
@@ -53,24 +56,20 @@ class GameLogic{
         players[leaderIndex!].role = "MASTER"
     }
     
-    func getPlayerName(index: Int) -> String{
-        return players[index].name
-    }
+    func getPlayerName(index: Int) -> String{ return players[index].name }
+    func getPlayerRole(index: Int) -> String{ return players[index].role }
+    func getNoPlayers() -> Int{ return players.count }
+    func getPlayerRolAFI(index: Int) -> String{ return playersCards[players[index].role]!.role.1 }
+    func getPlayerRoleImage(index: Int) -> String{ return playersCards[players[index].role]!.image }
+    func getMasterName() -> String{ return players[leaderIndex ?? 0].name}
+    func getCard() -> Card{ return gameCards[currentCardIndex!] }
     
-    func getPlayerRole(index: Int) -> String{
-        return players[index].role
-    }
-    
-    func getNoPlayers() -> Int{
-        return players.count
-    }
-    
-    func getPlayerRolAFI(index: Int) -> String{
-        return playersCards[players[index].role]!.role.1
-    }
-    
-    func getPlayerRoleImage(index: Int) -> String{
-        return playersCards[players[index].role]!.image
+    func getWordsFromCard() -> [(String,String)]{
+        var words: [(String,String)] = []
+        for i in 0...4 { // always five cards
+            words.append((gameCards[currentCardIndex!].words[i],gameCards[currentCardIndex!].afiWords[i]))
+        }
+        return words
     }
     
     // MARK: TEMP - AUX ROLE VIEW
@@ -101,3 +100,4 @@ struct PlayersCard: Identifiable {
     var role: (String, String)
     var image = String()
 }
+

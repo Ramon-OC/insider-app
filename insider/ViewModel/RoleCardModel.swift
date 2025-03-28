@@ -24,20 +24,15 @@ extension RoleCardView{
 //            GameLogic.shared.players = gameUsers
 //        }
         
-        func toggleIsLocked(){
-            self.isLocked.toggle()
-        }
-        
+        func toggleIsLocked(){ self.isLocked.toggle() }
         func incrementCurrentPlayerIndex(){ self.currentPlayerIndex+=1 }
         
-        // Locked
+        // Locked texts
         let lockedTxt01 = "As you swipe right the slider, your role in the game is revealed. Remember it and hide the information, then pass the phone to the shown name player on screen"
         var lockedTxt02: String { "Hello,\n"+currentPlayerName+"!"}
-        // Unlocked
+        // Unlocked texts
         let unlockedTxt01 = "Show this card to everyone"
         let unlockedTxt02 = "Go to phase two"
         let unlockedTxt03 = "Got it, hide it"
-
-
     }
 }
