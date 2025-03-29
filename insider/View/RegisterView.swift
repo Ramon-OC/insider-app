@@ -88,8 +88,10 @@ struct RegisterView: View {
                     .listStyle(.plain)
                     
                     if viewModel.noPlayers >= 4 {
-                        NavigationLink(destination: {
-                            viewModel.assignInitialSettings()
+                        
+                     
+                        NavigationLink(
+                            destination: { viewModel.assignInitialSettings()
                             return RoleCardView().navigationBarHidden(true)
                         }) {
                             Text(viewModel.registerTxt03)

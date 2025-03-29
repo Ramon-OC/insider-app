@@ -45,84 +45,86 @@ struct UnlockedRoleCardView: View {
     @ObservedObject var viewModel: RoleCardView.ViewModel
     @State private var isButtonVisible: Bool = false
     var body: some View {
-        VStack(spacing: 80) {
-            
-            // Role card
-            VStack(spacing: 50) {
-                Text(viewModel.currentPlayerName)
-                    .font(.system(size: 40, weight: .heavy, design: .default))
-                    .foregroundColor( .white)
-                    .frame(minWidth: 270)
-                    .padding(.top, 30)
+        NavigationView{
+            VStack(spacing: 80) {
                 
-                Image(systemName: viewModel.currentPlayerRoleImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .foregroundColor(.white)
-                
-                VStack(){
-                    Text(viewModel.currentPlayerRole)
+                // Role card
+                VStack(spacing: 50) {
+                    Text(viewModel.currentPlayerName)
                         .font(.system(size: 40, weight: .heavy, design: .default))
                         .foregroundColor( .white)
+                        .frame(minWidth: 270)
+                        .padding(.top, 30)
                     
-                    Text(viewModel.currentPlayerRoleAFI)
-                        .font(.system(size: 25, weight: .heavy, design: .default))
-                        .foregroundColor( .white)
-                        .italic()
-                        .padding()
-                }
-                .padding(.bottom, 30)
-            }
-            .background(Color.black)
-            .cornerRadius(10)
-            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            
-            if(viewModel.isLeaderPlayer){
-                Text(viewModel.unlockedTxt01)
-                    .font(.system(size: 20, weight: .heavy))
-                    .padding(.top, 5)
-            }
-            
-            // exit button
-            ZStack{
-                if(viewModel.allNotificated && isButtonVisible){
-                    NavigationLink(destination: {
-                        return ThemeRevealView().navigationBarHidden(true)
-                    }) {
-                        Text(viewModel.unlockedTxt02)
-                            .font(.system(size: 20, weight: .heavy))
-                            .frame(minWidth: 0, maxWidth: 240)
-                            .padding()
-                            .background(Color.black)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                }else if (isButtonVisible){
-                    Button(action: {
-                        viewModel.incrementCurrentPlayerIndex()
-                        viewModel.toggleIsLocked()
-                        isButtonVisible = false
+                    Image(systemName: viewModel.currentPlayerRoleImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 150, height: 150, alignment: .center)
+                        .foregroundColor(.white)
+                    
+                    VStack(){
+                        Text(viewModel.currentPlayerRole)
+                            .font(.system(size: 40, weight: .heavy, design: .default))
+                            .foregroundColor( .white)
                         
-                    }){
-                        Text(viewModel.unlockedTxt03)
-                            .font(.system(size: 20, weight: .heavy))
-                            .frame(minWidth: 0, maxWidth: 240)
+                        Text(viewModel.currentPlayerRoleAFI)
+                            .font(.system(size: 25, weight: .heavy, design: .default))
+                            .foregroundColor( .white)
+                            .italic()
                             .padding()
-                            .background(Color.black)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                     }
-                    .transition(.opacity)
-                    .padding(.bottom)
-                }}
+                    .padding(.bottom, 30)
+                }
+                .background(Color.black)
+                .cornerRadius(10)
+                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                
+                if(viewModel.isLeaderPlayer){
+                    Text(viewModel.unlockedTxt01)
+                        .font(.system(size: 20, weight: .heavy))
+                        .padding(.top, 5)
+                }
+                
+                // exit button
+                ZStack{
+                    if(viewModel.allNotificated && isButtonVisible){
+                        NavigationLink(destination: {
+                            return ThemeRevealView().navigationBarHidden(true)
+                        }) {
+                            Text(viewModel.unlockedTxt02)
+                                .font(.system(size: 20, weight: .heavy))
+                                .frame(minWidth: 0, maxWidth: 240)
+                                .padding()
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    }else if (isButtonVisible){
+                        Button(action: {
+                            viewModel.incrementCurrentPlayerIndex()
+                            viewModel.toggleIsLocked()
+                            isButtonVisible = false
+                            
+                        }){
+                            Text(viewModel.unlockedTxt03)
+                                .font(.system(size: 20, weight: .heavy))
+                                .frame(minWidth: 0, maxWidth: 240)
+                                .padding()
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .transition(.opacity)
+                        .padding(.bottom)
+                    }}
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         withAnimation {
-                        isButtonVisible = true
+                            isButtonVisible = true
                         }
                     }
                 }
+            }
         }
     }
 }
@@ -146,3 +148,4 @@ struct RoleCardView: View {
 //#Preview {
 //    RoleCardView()
 //}
+
