@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: temp-declarations
-let gameUsers = [Player(name: "Uno", role: "INSIDER"),Player(name: "Dos", role: "MASTER"),Player(name: "Tres", role: "COMMONS"),Player(name: "Cuatro", role: "COMMONS"),Player(name: "Cinco", role: "COMMONS")]
+// let gameUsers = [Player(name: "Uno", role: "INSIDER"),Player(name: "Dos", role: "MASTER"),Player(name: "Tres", role: "COMMONS"),Player(name: "Cuatro", role: "COMMONS"),Player(name: "Cinco", role: "COMMONS")]
 
 class GameLogic{
     
@@ -21,9 +21,18 @@ class GameLogic{
     var currentCardIndex: Int?
     
     let playersCards =
-    ["INSIDER": PlayersCard(role: ("INSIDER", "ɪnˈsaɪdər"), image: "eye.fill"),
-     "MASTER": PlayersCard(role: ("MASTER", "ˈmastər"), image: "exclamationmark"),
-     "COMMONS": PlayersCard(role: ("COMMONS", "ˈkämənz"), image: "questionmark")]
+    ["INSIDER": PlayersCard(role:
+                                (NSLocalizedString("role01-string", comment: "reg"),
+                                 NSLocalizedString("role01-afi-string", comment: "afi")),
+                image: "eye.fill"),
+     "MASTER": PlayersCard(role:
+                            (NSLocalizedString("role03-string", comment: "reg"),
+                             NSLocalizedString("role03-afi-string", comment: "afi")),
+                image: "exclamationmark"),
+     "COMMONS": PlayersCard(role:
+                            (NSLocalizedString("role02-string", comment: "reg"),
+                             NSLocalizedString("role02-afi-string", comment: "afi")),
+                image: "questionmark")]
     
     init(){
         self.gameCards = CardManager.shared.cards
@@ -39,6 +48,10 @@ class GameLogic{
     func resetGame(){
         self.currentWordIndex = Int.random(in: 1...5)
         self.currentCardIndex = Int.random(in: 1...5)
+    }
+    
+    func isLeaderPlayer(index: Int) -> Bool{
+        return index == leaderIndex
     }
     
     func saveNames(names: [NameInputItem]){
@@ -57,7 +70,8 @@ class GameLogic{
     }
     
     func getPlayerName(index: Int) -> String{ return players[index].name }
-    func getPlayerRole(index: Int) -> String{ return players[index].role }
+    func getPlayerRole(index: Int) -> String{ return playersCards[players[index].role]!.role.0 }
+    
     func getNoPlayers() -> Int{ return players.count }
     func getPlayerRolAFI(index: Int) -> String{ return playersCards[players[index].role]!.role.1 }
     func getPlayerRoleImage(index: Int) -> String{ return playersCards[players[index].role]!.image }
@@ -83,6 +97,7 @@ class GameLogic{
 
 struct Player{
     var name: String
+    // 1: INSIDER; 2: LEADER; 3: COMMON
     var role: String
     init(name: String, role: String) {
         self.name = name

@@ -5,6 +5,16 @@
   Created by José Ramón Ortiz Castañeda on 30/03/25.
   
 */
+
+// gameLogic
+"role01-string" = "INSIDER";
+"role02-string" = "COMMONS";
+"role03-string" = "LEADER";
+
+"role01-afi-string" = "ɪnˈsaɪdər";
+"role02-afi-string" = "ˈkämənz";
+"role03-afi-string" = "ˈliː.dɚ";
+
 // Initial View
 "welcome-string" = "Welcome \n to";
 "rules01-string" = "New around here?";
@@ -18,3 +28,21 @@
 "register06-string" = "Number of players: ";
 "register07-string" =  "Add players names\nusing the plus symbol";
 
+// role card model
+"rolecard01-string" = "As you swipe right the slider, your role in the game is revealed. Remember it and hide the information, then pass the phone to the shown name player on screen";
+"rolecard02-string" = "Hello,\n";
+"rolecard03-string" = "Show this card to everyone";
+"rolecard04-string" = "Go to phase two";
+"rolecard05-string" = "Got it, hide it";
+
+// theme reveal model
+"themereveal01-string" = "As a leader role in the game, when you slide the bar you will see the game word highlighted in red. When you finish, everyone closes their eyes (including you) and you leave your cell phone on the table. You will give the instruction to the insider to open his eyes and everyone counts from five to cero. The master will hide the word";
+"themereveal02-string" = "Leader: tap to flip";
+"themereveal03-string" = "Insider: tap to hide";
+"themereveal04-string" = "Time Is Over";
+"themereveal05-string" = "tap here to go to next phase";
+"themereveal06-string" = "Hello,\n";
+
+"slide-message" = "slide to reveal";
+
+//

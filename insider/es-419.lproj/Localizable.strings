@@ -5,8 +5,18 @@
   Created by José Ramón Ortiz Castañeda on 30/03/25.
   
 */
+
+// gameLogic
+"role01-string" = "INSIDER";
+"role02-string" = "MORTAL";
+"role03-string" = "LÍDER";
+
+"role01-afi-string" = "ɪnˈsaɪdər";
+"role02-afi-string" = "morˈtal";
+"role03-afi-string" = "ˈli.ð̞eɾ";
+
 // Initial View
-"welcome-string" = "Bienvenido \n a";
+"welcome-string" = "BIENVENIDO \n A";
 "rules01-string" = "Nuevo aquí?";
 "rules02-string" = "Ir a las reglas";
 
@@ -17,3 +27,20 @@
 "register04-string" = "Escribe un nombre";
 "register06-string" = "Número de jugadores: ";
 "register07-string" =  "Añade nuevos jugadores\nusando el símbolo +";
+
+// role card model
+"rolecard01-string" = "Al deslizar a la derecha, se revelará tu rol en el juego. Recuérdalo bien y oculta la información, luego pasa el teléfono al jugador que aparece en pantalla.";
+"rolecard02-string" = "Hola,\n";
+"rolecard03-string" = "Muestra esta carta a todos ";
+"rolecard04-string" = "Ir a la siguiente fase";
+"rolecard05-string" = "Lo tengo, ocultar";
+
+// theme reveal model
+"themereveal01-string" = "Como líder del juego, al deslizar verás la palabra del juego resaltada en rojo. Cuando la memorices, todos cerrarán sus ojos (incluyéndote) y dejas tu celular sobre la mesa. Le indicarás al jugador que abra los ojos y todos contarán de cinco a cero. El maestro ocultará la palabra.";
+"themereveal02-string" = "Líder: pulsa para voltear";
+"themereveal03-string" = "Insider: pulsa para ocultar";
+"themereveal04-string" = "Se agotó el tiempo";
+"themereveal05-string" = "pulsa aquí para ir a la siguiente fase";
+"themereveal06-string" = "Hola,\n";
+
+"slide-message" = "desliza para revelar";

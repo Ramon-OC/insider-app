@@ -110,7 +110,7 @@ struct TimeOverView: View {
                     
                 }
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(viewModel.secDur+1)) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(viewModel.durationSeconds+1)) {
                         withAnimation {
                             showNextViewText = true // Cambiamos el valor con animación
                         }

@@ -24,7 +24,6 @@ extension RegisterView{
         let registerTxt01 = NSLocalizedString("register01-string", comment: "")
         var registerTxt02: String { return NSLocalizedString("register06-string", comment: "no.players") + String(namesListItems.count)}
         let registerTxt03 =  NSLocalizedString("register02-string", comment: "Looks great!")
-
         // box texts
         let boxTxt01 =  NSLocalizedString("register03-string", comment: "Add a new player")
         let boxTxt02 =  NSLocalizedString("register04-string", comment: "Write the nickname")

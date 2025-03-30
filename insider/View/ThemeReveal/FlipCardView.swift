@@ -66,7 +66,7 @@ struct FlipCardView: View {
                 }
                 .animation(.easeInOut(duration: 4), value: viewModel.isFlipped)
                 
-                .frame(minWidth: 300, idealWidth: 300, maxWidth: 110, minHeight: 110)
+                .frame(minWidth: 300, idealWidth: 300, maxWidth: 300, minHeight: 110)
             }
         }
     }

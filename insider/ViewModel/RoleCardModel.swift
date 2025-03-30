@@ -16,23 +16,19 @@ extension RoleCardView{
         var currentPlayerRole: String {GameLogic.shared.getPlayerRole(index: currentPlayerIndex)}
         var currentPlayerRoleAFI: String  {GameLogic.shared.getPlayerRolAFI(index: currentPlayerIndex)}
         var currentPlayerRoleImage: String  {GameLogic.shared.getPlayerRoleImage(index: currentPlayerIndex)}
-        var isLeaderPlayer: Bool {currentPlayerRole == "MASTER" ? true : false}
+        var isLeaderPlayer: Bool {GameLogic.shared.isLeaderPlayer(index: currentPlayerIndex)}
         var allNotificated: Bool {currentPlayerIndex == GameLogic.shared.getNoPlayers()-1 ? true: false}
 
-//        init() {
-//            let gameUsers = [Player(name: "Uno", role: "INSIDER"),Player(name: "Dos", role: "MASTER"),Player(name: "Tres", role: "COMMONS"),Player(name: "Cuatro", role: "COMMONS"),Player(name: "Cinco", role: "COMMONS")]
-//            GameLogic.shared.players = gameUsers
-//        }
-        
         func toggleIsLocked(){ self.isLocked.toggle() }
         func incrementCurrentPlayerIndex(){ self.currentPlayerIndex+=1 }
         
         // Locked texts
-        let lockedTxt01 = "As you swipe right the slider, your role in the game is revealed. Remember it and hide the information, then pass the phone to the shown name player on screen"
-        var lockedTxt02: String { "Hello,\n"+currentPlayerName+"!"}
+        let lockedTxt01 = NSLocalizedString("rolecard01-string", comment: "intructions")
+        var lockedTxt02: String { NSLocalizedString("rolecard02-string", comment: "greeting")+currentPlayerName+"!"}
+        
         // Unlocked texts
-        let unlockedTxt01 = "Show this card to everyone"
-        let unlockedTxt02 = "Go to phase two"
-        let unlockedTxt03 = "Got it, hide it"
+        let unlockedTxt01 = NSLocalizedString("rolecard03-string", comment: "showCard-message")
+        let unlockedTxt02 = NSLocalizedString("rolecard04-string", comment: "moveFace-message")
+        let unlockedTxt03 = NSLocalizedString("rolecard05-string", comment: "hide-message")
     }
 }

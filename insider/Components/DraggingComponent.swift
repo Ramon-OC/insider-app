@@ -19,7 +19,7 @@ public struct SliderBackground: View {
                         endPoint: .trailing
                     )
                 )
-            Text("Slide to reveal")
+            Text(NSLocalizedString("slide-message", comment: "slide to unlock"))
                 .font(.footnote)
                 .bold()
                 .foregroundColor(.white)
