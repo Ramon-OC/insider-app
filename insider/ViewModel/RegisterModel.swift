@@ -21,17 +21,17 @@ extension RegisterView{
         let addPlayerSymbol = "plus.circle"
         
         // register texts
-        let registerTxt01 = "Player Names"
-        var registerTxt02: String { return "Number of players: " + String(namesListItems.count)}
-        let registerTxt03 = "Looks great!"
+        let registerTxt01 = NSLocalizedString("register01-string", comment: "")
+        var registerTxt02: String { return NSLocalizedString("register06-string", comment: "no.players") + String(namesListItems.count)}
+        let registerTxt03 =  NSLocalizedString("register02-string", comment: "Looks great!")
 
         // box texts
-        let boxTxt01 = "Add a new player"
-        let boxTxt02 = "Write the nickname"
-        let boxTxt03 = "Looks great!"
+        let boxTxt01 =  NSLocalizedString("register03-string", comment: "Add a new player")
+        let boxTxt02 =  NSLocalizedString("register04-string", comment: "Write the nickname")
+        let boxTxt03 =  NSLocalizedString("register02-string", comment: "Looks great!")
         
         // blank view
-        let blankTxt01 = "Add players names\nusing the plus symbol"
+        let blankTxt01 =  NSLocalizedString("register07-string", comment: "Add players names\nusing the plus symbol")
 
         func addName(nameInput: String){
             namesListItems.append(NameInputItem(name: nameInput))

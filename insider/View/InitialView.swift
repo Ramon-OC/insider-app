@@ -37,7 +37,7 @@ struct InitialView: View{
                     .multilineTextAlignment(.center)
                     .foregroundColor(.black)
                                 
-                HStack {
+                HStack(spacing: 10) {
                     if(isButtonVisible){
                         Text(viewModel.welcomeText03)
                             .foregroundColor(Color(.white))

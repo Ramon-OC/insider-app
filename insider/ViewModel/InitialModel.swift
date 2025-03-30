@@ -7,15 +7,12 @@
 import Foundation
 
 extension InitialView{
-    @Observable
     class ViewModel{
-        var welcomeText01 = "WELCOME\nTO"
-        var welcomeText02 = "INSIDER"
-        var welcomeText03 = "New around here? "
-        var welcomeText04 = "Go to rules"
-
+        let welcomeText01 = NSLocalizedString("welcome-string", comment: "Welcome")
+        let welcomeText02 = "INSIDER"
+        let welcomeText03 = NSLocalizedString("rules01-string", comment: "New around here?")
+        let welcomeText04 = NSLocalizedString("rules02-string", comment: "Go to rules")
         let buttonImage = "eye.fill"
 
-      
     }
 }

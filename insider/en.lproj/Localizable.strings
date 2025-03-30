@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  insider
+
+  Created by José Ramón Ortiz Castañeda on 30/03/25.
+  
+*/
+// Initial View
+"welcome-string" = "Welcome \n to";
+"rules01-string" = "New around here?";
+"rules02-string" = "Go to rules";
+
+// registration View
+"register01-string" = "Player Names";
+"register02-string" = "Looks great!";
+"register03-string" = "Add a new player";
+"register04-string" = "Write the nickname";
+"register06-string" = "Number of players: ";
+"register07-string" =  "Add players names\nusing the plus symbol";
+

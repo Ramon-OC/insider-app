@@ -53,9 +53,9 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack {
+                VStack{
                     HStack { // first row
-                        VStack{
+                        VStack(spacing: 10){
                             Text(viewModel.registerTxt01)
                                 .font(.custom("Helvetica", size: 41))
                                 .foregroundColor(.white)
